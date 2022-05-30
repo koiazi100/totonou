@@ -37,7 +37,7 @@
   width: 5vh;
   border: 0;
   cursor: pointer;
-  background-color: #3ccace;
+  background-color: darkblue;
   padding: 8px;
 }
 
@@ -101,4 +101,5 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+  line-height: 32px;
 }
