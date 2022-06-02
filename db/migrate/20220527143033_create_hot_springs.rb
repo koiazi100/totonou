@@ -6,13 +6,9 @@ class CreateHotSprings < ActiveRecord::Migration[6.0]
       t.string :postcode, null: false
       t.string :city, null: false
       t.string :block, null: false
-      t.string :building, null: false
+      t.string :building
       t.text :homepage, null: false
       t.references :user, null: false, foreign_key: true
-      t.integer :hot_temperture
-      t.integer :cold_temperture
-      t.integer :people_count
-      t.text :remarks
       t.timestamps
     end
   end

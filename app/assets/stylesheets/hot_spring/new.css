@@ -113,8 +113,7 @@
 
 /* 商品の詳細など */
 .items-detail {
-  display: flex;
-  justify-content: space-between;
+  
   padding: 2vh 0;
 }
 
@@ -208,6 +207,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin:0 auto;
+  
 }
 
 
