@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_27_143033) do
+ActiveRecord::Schema.define(version: 2022_05_30_094832) do
+
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "hot_springs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -18,16 +39,23 @@ ActiveRecord::Schema.define(version: 2022_05_27_143033) do
     t.string "postcode", null: false
     t.string "city", null: false
     t.string "block", null: false
-    t.string "building", null: false
+    t.string "building"
     t.text "homepage", null: false
     t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_hot_springs_on_user_id"
+  end
+
+  create_table "man_saunas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "hot_temperture"
     t.integer "cold_temperture"
     t.integer "people_count"
     t.text "remarks"
+    t.bigint "hot_spring_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_hot_springs_on_user_id"
+    t.index ["hot_spring_id"], name: "index_man_saunas_on_hot_spring_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -45,5 +73,19 @@ ActiveRecord::Schema.define(version: 2022_05_27_143033) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "woman_saunas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "w_hot_temperture"
+    t.integer "w_cold_temperture"
+    t.integer "w_people_count"
+    t.text "w_remarks"
+    t.bigint "hot_spring_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hot_spring_id"], name: "index_woman_saunas_on_hot_spring_id"
+  end
+
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "hot_springs", "users"
+  add_foreign_key "man_saunas", "hot_springs"
+  add_foreign_key "woman_saunas", "hot_springs"
 end
