@@ -29,17 +29,22 @@
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
       <% @hot_springs.each do |hot_spring|%>
       <li class='list'>
-        <%= link_to "#" do %>
+        <%= link_to hot_spring_path(hot_spring.id) do %>
         <div class='item-img-content'>
-          <%= image_tag "item-sample.png", class: "item-img" %>
-
+          <% if hot_spring.image.present?%>
+            <%= image_tag hot_spring.image, class: "item-img" %>
+          <% else %>
+             <%= image_tag "item-sample.png", class: "item-img" %>
+          <% end %>
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
-            <%= "温泉施設名" %>
+            <%= hot_spring.name %>
           </h3>
           <div class='item-price'>
-            <span><%= "サウナ温度" %>℃<br><%= '水風呂温度' %></span>
+          
+            <span>男湯<%= @saunas.hot_temperture %><br><%= @saunas.cold_temperture %></span>
+            <span>女湯<%= @saunas.w_hot_temperture %><br><%= @saunas.w_cold_temperture %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
