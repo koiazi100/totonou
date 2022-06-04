@@ -22,7 +22,8 @@ class HotSpringsController < ApplicationController
   end
 
   def show
-
+    @comments = @hot_spring.comments.includes(:user)
+    @comment = Comment.new
   end
 
   private
