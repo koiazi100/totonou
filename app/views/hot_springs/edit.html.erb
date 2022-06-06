@@ -7,117 +7,164 @@ app/assets/stylesheets/items/new.css %>
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with local: true do |f| %>
+    <%= form_with model:@sauna,url: hot_spring_path(@hot_spring.id), method: :patch,local: true do |f| %>
 
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%# render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-
+    <%= render 'shared/error_messages', model: f.object %>
+    
     <%# 商品画像 %>
     <div class="img-upload">
+      
       <div class="weight-bold-text">
-        商品画像
-        <span class="indispensable">必須</span>
+        施設外観画像
+        <span class="indispensable">任意</span>
       </div>
+
       <div class="click-upload">
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :hoge, id:"item-image" %>
+        <%= f.file_field :image, id:"item-image" %>
       </div>
+
     </div>
     <%# /商品画像 %>
     <%# 商品名と商品説明 %>
-    <div class="new-items">
+    
       <div class="weight-bold-text">
-        商品名
+        施設名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :hoge, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
-      <div class="items-explain">
-        <div class="weight-bold-text">
-          商品の説明
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :hoge, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-    </div>
+      <%= f.text_field :name ,class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+    
     <%# /商品名と商品説明 %>
 
-    <%# 商品の詳細 %>
+    <%# 商品の詳 %>
     <div class="items-detail">
-      <div class="weight-bold-text">商品の詳細</div>
-      <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-category"}) %>
-        <div class="weight-bold-text">
-          商品の状態
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-sales-status"}) %>
+      <div class="weight-bold-text">施設の詳細
       </div>
+        <div class="form">
+          <div class="weight-bold-text">
+            都道府県
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        
+          <div class='form-text-wrap'>
+            <label class="form-text">郵便番号</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :postcode, class:"items-text", id:"city", placeholder:"例）123-4567"%>
+      
+
+          <div class='form-text-wrap'>
+            <label class="form-text">市区町村</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :city, class:"items-text", id:"city", placeholder:"例）横浜市緑区"%>
+        </div>
+
+        <div class="form">
+          <div class='form-text-wrap'>
+            <label class="form-text">番地</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :block, class:"items-text", id:"addresses", placeholder:"例）青山1-1-1"%>
+        </div>
+
+        <div class="form">
+          <div class='form-text-wrap'>
+            <label class="form-text">建物名</label>
+            <span class="form-any">任意</span>
+          </div>
+          <%= f.text_field :building, class:"input-default", id:"building", placeholder:"例）柳ビル103"%>
+        </div>
+
+        <div class="weight-bold-text">
+          HP
+          <span class="form-any">任意</span>
+        </div>
+        <%= f.text_area :homepage, class:"items-text", id:"item-name", placeholder:"https://~", maxlength:"40" %>
+      
     </div>
     <%# /商品の詳細 %>
 
-    <%# 配送について %>
     <div class="items-detail">
       <div class="weight-bold-text question-text">
-        <span>配送について</span>
-        <a class="question" href="#">?</a>
+        <span>サウナについて</span>
+        <span>男湯</span>
       </div>
+
       <div class="form">
         <div class="weight-bold-text">
-          配送料の負担
-          <span class="indispensable">必須</span>
+          サウナ室温度
+          <span class="indispensable">任意</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
-        <div class="weight-bold-text">
-          発送元の地域
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-prefecture"}) %>
-        <div class="weight-bold-text">
-          発送までの日数
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
+        <%= f.text_area :hot_temperture, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
       </div>
-    </div>
-    <%# /配送について %>
 
-    <%# 販売価格 %>
-    <div class="sell-price">
-      <div class="weight-bold-text question-text">
-        <span>販売価格<br>(¥300〜9,999,999)</span>
-        <a class="question" href="#">?</a>
+      <div class="form">
+        <div class="weight-bold-text">
+        水風呂温度
+        <span class="indispensable">任意</span>
+        </div>
+        <%= f.text_area :cold_temperture, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
       </div>
-      <div>
-        <div class="price-content">
-          <div class="price-text">
-            <span>価格</span>
-            <span class="indispensable">必須</span>
+
+      <div class="form">
+        <div class="weight-bold-text">
+          収容人数
+          <span class="indispensable">任意</span>
+        </div>
+        <%= f.text_area :people_count, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      </div>
+
+      <div class="form">
+        <div class="weight-bold-text">
+          備考
+          <span class="indispensable">任意</span>
+        </div>
+        <%= f.text_area :remarks, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      </div>
+
+     <%# 女湯%>
+     
+      <div class="weight-bold-text">
+          <span>女湯</span>
+      </div>
+
+        <div class="form">
+          <div class="weight-bold-text">
+            サウナ室温度
+            <span class="indispensable">任意</span>
           </div>
-          <span class="sell-yen">¥</span>
-          <%= f.text_field :hoge, class:"price-input", id:"item-price", placeholder:"例）300" %>
+          <%= f.text_area :w_hot_temperture, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
         </div>
-        <div class="price-content">
-          <span>販売手数料 (10%)</span>
-          <span>
-            <span id='add-tax-price'></span>円
-          </span>
+
+        <div class="form">
+          <div class="weight-bold-text">
+            水風呂温度
+            <span class="indispensable">任意</span>
+           </div>
+          <%= f.text_area :w_cold_temperture, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
         </div>
-        <div class="price-content">
-          <span>販売利益</span>
-          <span>
-            <span id='profit'></span>円
-          </span>
+
+        <div class="form">
+          <div class="weight-bold-text">
+            収容人数
+            <span class="indispensable">任意</span>
+          </div>
+          <%= f.text_area :w_people_count, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+        </div>
+
+        <div class="form">
+          <div class="weight-bold-text">
+            備考
+            <span class="indispensable">任意</span>
+          </div>
+          <%= f.text_area :w_remarks, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
         </div>
       </div>
-    </div>
-    <%# /販売価格 %>
+    <%# サウナについて %>
 
     <%# 注意書き %>
     <div class="caution">
@@ -150,12 +197,12 @@ app/assets/stylesheets/items/new.css %>
   <footer class="items-sell-footer">
     <ul class="menu">
       <li><a href="#">プライバシーポリシー</a></li>
-      <li><a href="#">フリマ利用規約</a></li>
+      <li><a href="#">TOTONOU利用規約</a></li>
       <li><a href="#">特定商取引に関する表記</a></li>
     </ul>
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
     <p class="inc">
-      ©︎Furima,Inc.
+      ©︎TOTONOU,Inc.
     </p>
   </footer>
 </div>
