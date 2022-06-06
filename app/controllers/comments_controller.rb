@@ -16,6 +16,6 @@ class CommentsController  < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:content).merge(user_id: current_user.id, hot_spring_id: params[:hot_spring_id])
+    params.require(:comment).permit(:content, {images: []}).merge(user_id: current_user.id, hot_spring_id: params[:hot_spring_id])
   end
 end
