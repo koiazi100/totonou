@@ -24,8 +24,24 @@ class HotSpringsController < ApplicationController
   def show
     @comments = @hot_spring.comments.includes(:user)
     @comment = Comment.new
+   # @sauna = Sauna.new(sauna_params)
   end
 
+  def edit
+    hot_spring_attributes = @hot_spring.attributes
+    
+    @sauna = Sauna.new(hot_spring_attributes)
+  end
+
+  def update
+    @sauna = Sauna.new(sauna_params)
+    if @sauna.valid? 
+       @sauna.update(sauna_params, @hot_spring)
+       redirect_to root_path
+    else
+      render :edit
+    end
+  end
   private
 
   def sauna_params
