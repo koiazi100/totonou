@@ -12,7 +12,7 @@
   <div class='nav'>
     <ul class='lists-left'>
       <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
-      <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
+      <li> <%= link_to '投稿する',new_hot_spring_path, class: "category-list" %></li>
     </ul>
     <ul class='lists-right'>
      <% if user_signed_in? %>
