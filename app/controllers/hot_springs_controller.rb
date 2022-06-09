@@ -3,8 +3,8 @@ class HotSpringsController < ApplicationController
   before_action :set_hot_spring, only: [:show, :edit, :update, :destroy]
   def index
     @hot_springs = HotSpring.all
-    
     @saunas = Sauna.new
+    @comments = Comment.all
   end
 
   def new
