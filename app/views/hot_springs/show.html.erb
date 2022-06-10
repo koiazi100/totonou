@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<%# 商品の概要 %>
+<%# 施設の概要 %>
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
@@ -10,7 +10,7 @@
      <% if @hot_spring.image.present?%>
             <%= image_tag @hot_spring.image, class: "item-box-img" %>
           <% else %>
-             <%= image_tag "item-sample.png", class: "item-box-img" %>
+             <%= image_tag "sample.png", class: "item-box-img" %>
           <% end %>
     </div>
     
@@ -18,15 +18,19 @@
     
 
     <div class="item-explain-box">
-      <span><%= "施設情報" %></span>
+      <span class="explain"><%= "施設情報" %></span>
     </div>
     <table class="detail-table">
-      <tbody>
+    <tbody>
         <tr>
           <th class="detail-item">住所</th>
           <td class="detail-value">〒<%= @hot_spring.postcode%> <%= @hot_spring.prefecture.name %><%= @hot_spring.city%><%= @hot_spring.block%><%= @hot_spring.building%></td>
         </tr>
-        男湯
+    </tbody>
+    </table>
+    <table class="detail-table">
+      <span>男湯</span>
+      
         <tr>
           <th class="detail-item">サウナ室温度</th>
           <td class="detail-value"><%= @hot_spring&.man_sauna.hot_temperture %></td>
@@ -43,7 +47,13 @@
           <th class="detail-item">備考</th>
           <td class="detail-value"><%= @hot_spring&.man_sauna.remarks %></td>
         </tr>
-        <span>女湯</span>
+      </tbody>
+     </table>
+
+     <table class="detail-table">
+       <span>女湯</span>
+      <tbody>
+       
         <tr>
           <th class="detail-item">サウナ室温度</th>
           <td class="detail-value"><%= @hot_spring&.woman_sauna.w_hot_temperture %></td>
@@ -103,7 +113,7 @@
     <h4>＜コメント一覧＞</h4>
       <% @hot_spring.comments.each do |comment| %>
         <div class="comment">
-          <p class="user-info"><%= comment.user.nickname %>： </p>
+          <p class="user-info"><%= link_to comment.user.nickname, user_path(comment.user.id) %>： </p>
           <p><%= comment.content%></p>
           <% if comment.images.attached? %>
           <%= image_tag comment.images[0].variant(resize: '300x300'), class: "main-image" %><br>

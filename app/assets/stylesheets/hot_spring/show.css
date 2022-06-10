@@ -79,17 +79,20 @@
   overflow-wrap: anywhere;
 }
 
+
 .detail-table {
   margin-bottom: 30px;
   width: 100%;
+  
 }
 
 .detail-item {
   width: 20%;
-  background-color: #eee;
+  background: #447791;
   border: 1px solid #dedede;
   font-size: 14px;
   text-align: center;
+
 }
 
 .detail-value {
@@ -165,8 +168,8 @@
 
 .comment-btn {
   line-height: 48px;
-  background-color: #3CCACE;
-  border: 1px solid #3CCACE;
+  background-color: darkblue;
+  border: 1px solid darkblue;
   color: #fff;
   width: 50%;
   min-width: 150px;
@@ -204,4 +207,12 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;
+}
+
+.name {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.explain {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }

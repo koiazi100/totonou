@@ -11,4 +11,5 @@ end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :sex
+  has_many :comments
 end
