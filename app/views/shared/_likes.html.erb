@@ -1,0 +1,16 @@
+
+                  <% if hot_spring.liked_by?(current_user) %>
+    <p>
+      <!--remote: trueを追加-->
+      <%= link_to post_likes_path(hot_spring), method: :delete, remote: true do %>
+        <i class="fas fa-heart"></i><%= hot_spring.likes.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+<!--remote: trueを追加-->
+      <%= link_to hot_spring_likes_path(hot_spring), method: :post, remote: true do %>
+        <i class="far fa-heart"></i><%= hot_spring.likes.count %> いいね
+      <% end %>
+    </p>
+  <% end %>

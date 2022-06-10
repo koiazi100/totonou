@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_04_041050) do
+ActiveRecord::Schema.define(version: 2022_06_10_045025) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 2022_06_04_041050) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "hot_spring_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "comment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_favorites_on_comment_id"
+    t.index ["hot_spring_id"], name: "index_favorites_on_hot_spring_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "hot_springs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "prefecture_id", null: false
@@ -55,6 +66,14 @@ ActiveRecord::Schema.define(version: 2022_06_04_041050) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_hot_springs_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "hot_spring_id"
+    t.integer "comment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "man_saunas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -97,6 +116,9 @@ ActiveRecord::Schema.define(version: 2022_06_04_041050) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "hot_springs"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "comments"
+  add_foreign_key "favorites", "hot_springs"
+  add_foreign_key "favorites", "users"
   add_foreign_key "hot_springs", "users"
   add_foreign_key "man_saunas", "hot_springs"
   add_foreign_key "woman_saunas", "hot_springs"
