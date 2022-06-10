@@ -33,7 +33,7 @@
           <% if hot_spring.image.present?%>
             <%= image_tag hot_spring.image, class: "item-img" %>
           <% else %>
-             <%= image_tag "item-sample.png", class: "item-img" %>
+             <%= image_tag "sample.png", class: "item-img" %>
           <% end %>
         </div>
         <div class='item-info'>
@@ -96,7 +96,7 @@
           <li class='list'>
             <div class='comment-info'>
               <h3 class='comment-name'>
-                <%= comment.user.nickname %>
+                <%= link_to comment.user.nickname, user_path(comment.user.id) %>
               </h3>
               <div class='hot_spring-name'>
                 <%= link_to comment.hot_spring.name, hot_spring_path(comment.hot_spring.id) %>

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :hot_springs do
     resources :comments,only: [:index, :new, :create]
   end
+  resources :users, only: [:show]
 end
