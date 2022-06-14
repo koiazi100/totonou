@@ -74,8 +74,9 @@
     </table>
     <div class="option">
       <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
+        <div class='heart-btn' id="hot_spring_<%= @hot_spring.id %>">  
+           <%= render 'likes/like',hot_spring: @hot_spring %>
+        </div>
       </div>
       <div class="report-btn">
         <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
@@ -132,9 +133,6 @@
   
 
   
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-  <a href="#" class="another-item"><%= "商品のカテゴリー名" %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
 
 <% if user_signed_in? %>
     <%= link_to "施設情報の編集", edit_hot_spring_path(@hot_spring.id), method: :get, class: "item-red-btn" %>

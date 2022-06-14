@@ -55,13 +55,11 @@
                 <p class='water-room'>水風呂</p>
                 <span><%= hot_spring.woman_sauna.w_cold_temperture %>度</span>
               </div>
-            <div class='heart-btn'>
-              <div class="likes_buttons_<%= hot_spring.id %>">
-              <%= render 'shared/likes',hot_spring: hot_spring %>
+              <div class='heart-btn' id="hot_spring_<%= hot_spring.id %>">
+                
+                  <%= render 'likes/like',hot_spring: hot_spring %>
+                
               </div>
-              <%#= image_tag "heart.png", class:"heart-icon" %>
-              <%#span class='heart-count'>0</span%>
-            </div>
           </div>
         </div>
         <% end %>
@@ -78,7 +76,7 @@
           <div class='item-price'>
            
             <div class='heart-btn'>
-              <%= render "shared/hot-spring-likes" %>
+             
               <%#= image_tag "heart.png", class:"heart-icon" %>
               <%#span class='heart-count'>0</span%>
             </div>

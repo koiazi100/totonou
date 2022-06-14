@@ -1,17 +1,21 @@
 class LikesController < ApplicationController
+  before_action :hot_spring_params
+  
   def create
-    hot_spring = HotSpring.find(params[:hot_spring_id])
-    comment = Comment.find(params[:comment_id])
-    like = current_user.likes.new(hot_spring_id: hot_spring.id, comment_id: comment.id)
-    like.save
-    
+    Like.create(user_id: current_user.id, hot_spring_id: params[:id])
+
   end
 
   def destroy
-    hot_spring = HotSpring.find(params[:hot_spring_id])
-    comment = Comment.find(params[:comment_id])
-    like = current_user.likes.find_by(hot_spring_id: hot_spring.id, comment_id: comment.id)
-    like.destroy
+    Like.find_by(user_id: current_user.id, hot_spring_id: params[:id]).destroy
     
   end
+
+  private
+  
+  def hot_spring_params
+    @hot_spring = HotSpring.find(params[:id])
+  end
+
+ 
 end

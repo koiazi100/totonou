@@ -1,1 +1,1 @@
-$('.likes_buttons_<%= @hot_spring.id %>').html("<%= j(render 'shared/likes', hot_spring: @hot_spring) %>");
+$('#hot_spring_<%= @hot_spring.id %>').html("<%= j(render partial: 'likes/like', locals: {hot_spring: @hot_spring}) %>");

@@ -1,5 +1,5 @@
 class HotSpringsController < ApplicationController
-  #before_action :move_to_sign_up, only: [:create]
+  before_action :move_to_sign_up, only: [:create, :edit, :update]
   before_action :set_hot_spring, only: [:show, :edit, :update, :destroy]
   def index
     @hot_springs = HotSpring.all
@@ -24,7 +24,7 @@ class HotSpringsController < ApplicationController
   def show
     @comments = @hot_spring.comments.includes(:user)
     @comment = Comment.new
-   # @sauna = Sauna.new(sauna_params)
+    
   end
 
   def edit
