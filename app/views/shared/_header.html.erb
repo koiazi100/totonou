@@ -1,7 +1,8 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
+<div class='top-contents'>
   <div class='search-bar-contents'>
-    <%= link_to image_tag("sauna-logo.png", class:"furima-icon"), "/" %>
+    <%= link_to image_tag("sauna-logo.png", class:"sauna-icon"), "/" %>
     <form class="search-form" action="#">
       <input class='input-box' placeholder='キーワードから探す'>
       <button class="search-button">
@@ -10,12 +11,10 @@
     </form>
   </div>
   <div class='nav'>
-    <ul class='lists-left'>
-      <%#<li><%= link_to 'カテゴリー', "#", class: "category-list" </li>%>
-      <li> <%= link_to '投稿する',new_hot_spring_path, class: "category-list" %></li>
-    </ul>
     <ul class='lists-right'>
      <% if user_signed_in? %>
+     <%#<li><%= link_to 'カテゴリー', "#", class: "category-list" </li>%>
+      <li> <%= link_to '投稿する',new_hot_spring_path, class: "post" %></li>
      <li><%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname" %></li> 
      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
      <% else %>
@@ -24,4 +23,20 @@
      <% end %>
     </ul>
   </div>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      TOTONOU
+    </h2>
+    <p class='service-explain'>
+      全国のサウナの情報を共有できる
+    </p>
+    <p class='service-explain'>
+      サウナ好きのためのサイトです
+    </p>
+    <div class='store-btn'>
+      <%= link_to image_tag("app-store.svg", class:"apple-btn"), "#" %>
+      <%= link_to image_tag("google-play.png", class:"google-btn"), "#" %>
+    </div>
+  </div>
+  
 </header>
