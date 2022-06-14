@@ -216,3 +216,8 @@
 .explain {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+.preview-size{
+  height: 150px;
+  width: auto;
+}

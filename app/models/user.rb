@@ -14,5 +14,7 @@ end
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :sex
 
-  
+  def liked_by?(hot_spring_id)
+    likes.where(hot_spring_id: hot_spring_id).exists?
+  end
 end

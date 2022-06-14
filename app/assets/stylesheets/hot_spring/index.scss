@@ -22,6 +22,23 @@ a {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
 
+.title-contents.slidein.is-animated {
+  animation: slideIn 1s cubic-bezier(0.25, 1, 0.5, 1) 1 forwards;
+}
+ 
+@keyframes slideIn {
+  0% {
+    transform: translateX(180px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+  }
+  40%,100% {
+    opacity: 1;
+  }
+} 
+
 .service-title {
   font-size: 8vh;
 }

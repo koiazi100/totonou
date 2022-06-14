@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 2022_06_10_045025) do
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "hot_spring_id"
-    t.integer "comment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
