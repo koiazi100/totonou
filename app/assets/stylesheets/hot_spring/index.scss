@@ -33,10 +33,11 @@ a {
 
 .item-lists {
   width: 100vw;
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
   justify-content: center;
-  flex-direction: column;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 26px;
 }
 
 .item-lists>.list {
@@ -134,11 +135,11 @@ a {
 
 .comment-lists {
   width: 100vw;
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
-  justify-content: center;
-}
 
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
 .comment-lists>.list {
   width: 37vh;
   padding: 1vw;

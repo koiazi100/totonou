@@ -40,6 +40,9 @@
   font-weight: bold;
 }
 
+.form-any {
+  background-color: lightgrey;
+}
 .weight-bold-text {
   font-weight: bold;
   min-width: 170px;
@@ -181,13 +184,15 @@
 }
 
 .sell-btn {
-  background: #ea352d;
-  border: 1px solid #ea352d;
+  background: #193278;
+  border: 1px solid #193278;
   color: #fff;
   width: 100%;
   height: 50px;
   font-size: 14px;
   margin-bottom: 4vh;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .back-btn {
@@ -196,6 +201,7 @@
   color: #fff;
   padding: 15px 35%;
   text-decoration: none;
+  border-radius: 10px;
 }
 
 /* /下部ボタン */

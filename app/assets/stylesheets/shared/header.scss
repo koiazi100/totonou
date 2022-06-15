@@ -84,7 +84,7 @@
   width: 5vh;
   border: 0;
   cursor: pointer;
-  background-color: darkblue;
+  background-color: #193278;
   padding: 8px;
 }
 
@@ -104,8 +104,12 @@
   margin-right: 3vw;
   color: #333333;
   font-weight: bold;
-  margin-left: 10vw;
 }
+
+.post:hover {
+  opacity: 0.7;
+  color: #193278;
+  }
 
 .brand-list {
   text-decoration: none;
@@ -126,6 +130,11 @@
   font-weight: bold;
 }
 
+.user-nickname:hover {
+  opacity: 0.7;
+  color: #193278;
+  }
+
 
 .nav {
   font-size: 18px;
@@ -143,6 +152,11 @@
   margin-right: 3vw;
 }
 
+.logout:hover {
+  opacity: 0.7;
+  color: #193278;
+  }
+
 .login {
   text-decoration: none;
   line-height: 32px;
@@ -151,6 +165,11 @@
   font-weight: bold;
 }
 
+.login:hover {
+  opacity: 0.7;
+  color: #193278;
+  }
+
 .sign-up {
   text-decoration: none;
   color: #333333;
@@ -158,3 +177,8 @@
   margin-right: 3vw;
   font-weight: bold;
 }
+
+.sign-up:hover {
+  opacity: 0.7;
+  color: #193278;
+  }
