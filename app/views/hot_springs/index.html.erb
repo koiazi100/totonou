@@ -22,25 +22,24 @@
             <%= hot_spring.name %>
           </h3>
           <div class='item-price'>
-             <div class='man-sauna'>
-                <p class='man-title'>男湯</p>
-                <p class='sauna-room'>サウナ室</p>
-                <span><%= hot_spring.man_sauna.hot_temperture %>度</span>
-                <p class='water-room'>水風呂</p>
-                <%= hot_spring.man_sauna.cold_temperture %>度</span>
-              </div>
-              <div class='woman-sauna'>
-                <p class='woman-title'>女湯</p>
-                <p class='sauna-room'>サウナ室</p>
-                <span><%= hot_spring.woman_sauna.w_hot_temperture %>度</span>
-                <p class='water-room'>水風呂</p>
-                <span><%= hot_spring.woman_sauna.w_cold_temperture %>度</span>
-              </div>
-              <div class='heart-btn' id="hot_spring_<%= hot_spring.id %>">
-                
-                  <%= render 'likes/like',hot_spring: hot_spring %>
-                
-              </div>
+            <table class='man-sauna'>
+                <tr><th class='man-title'>男湯</th></tr>
+               <tr> <td class='sauna-room'>サウナ室</td>
+                <td><%= hot_spring.man_sauna.hot_temperture %>度</td></tr>
+                <tr><td class='water-room'>水風呂</td>
+                <td><%= hot_spring.man_sauna.cold_temperture %>度</td></tr>
+            </table>
+              
+            <table class='woman-sauna'>
+                <tr><th class='woman-title'>女湯</th></tr>
+               <tr> <td class='sauna-room'>サウナ室</td>
+                <td><%= hot_spring.woman_sauna.w_hot_temperture %>度</td></tr>
+                <tr><td class='water-room'>水風呂</td>
+                <td><%= hot_spring.woman_sauna.w_cold_temperture %>度</td></tr>
+            </table>
+            <div class='heart-btn' id="hot_spring_<%= hot_spring.id %>">
+                <%= render 'likes/like',hot_spring: hot_spring %>    
+            </div>
           </div>
         </div>
         <% end %>
