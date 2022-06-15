@@ -75,9 +75,9 @@
         </div>
         <%= f.text_field :building, class:"input-default", id:"building", placeholder:"例）柳ビル103"%>
       </div>
-
-      <div class="weight-bold-text">
-        HP
+      <div class='form-text-wrap'>
+       <label class="form-text">
+        HP</label>
         <span class="form-any">任意</span>
       </div>
       <%= f.text_area :homepage, class:"items-text", id:"item-name", placeholder:"https://~", maxlength:"40" %>
@@ -90,27 +90,31 @@
         <span>サウナについて</span>
         <span>男湯</span>
       </div>
-      <div class="weight-bold-text">
-        サウナ室温度
-        <span class="indispensable">任意</span>
+      <div class='form-text-wrap'>
+       <label class="form-text">
+        サウナ室温度</label>
+        <span class="form-any">任意</span>
       </div>
       <%= f.text_area :hot_temperture, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
 
-      <div class="weight-bold-text">
-        水風呂温度
-        <span class="indispensable">任意</span>
+      <div class='form-text-wrap'>
+      <label class="form-text">
+        水風呂温度</label>
+        <span class="form-any">任意</span>
       </div>
       <%= f.text_area :cold_temperture, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
 
-      <div class="weight-bold-text">
-        収容人数
-        <span class="indispensable">任意</span>
+      <div class='form-text-wrap'>
+      <label class="form-text">
+        収容人数</label>
+        <span class="form-any">任意</span>
       </div>
       <%= f.text_area :people_count, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
 
-      <div class="weight-bold-text">
-        備考
-        <span class="indispensable">任意</span>
+      <div class='form-text-wrap'>
+      <label class="form-text">
+        備考</label>
+        <span class="form-any">任意</span>
       </div>
       <%= f.text_area :remarks, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
 
@@ -118,27 +122,31 @@
      <div class="weight-bold-text question-text">
         <span>女湯</span>
       </div>
-      <div class="weight-bold-text">
-        サウナ室温度
-        <span class="indispensable">任意</span>
+      <div class='form-text-wrap'>
+      <label class="form-text">
+        サウナ室温度</label>
+        <span class="form-any">任意</span>
       </div>
       <%= f.text_area :w_hot_temperture, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
 
-      <div class="weight-bold-text">
-        水風呂温度
-        <span class="indispensable">任意</span>
+      <div class='form-text-wrap'>
+      <label class="form-text">
+        水風呂温度</label>
+        <span class="form-any">任意</span>
       </div>
       <%= f.text_area :w_cold_temperture, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
 
-      <div class="weight-bold-text">
-        収容人数
-        <span class="indispensable">任意</span>
+      <div class='form-text-wrap'>
+      <label class="form-text">
+        収容人数</label>
+        <span class="form-any">任意</span>
       </div>
       <%= f.text_area :w_people_count, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
 
-      <div class="weight-bold-text">
-        備考
-        <span class="indispensable">任意</span>
+      <div class='form-text-wrap'>
+      <label class="form-text">
+        備考</label>
+        <span class="form-any">任意</span>
       </div>
       <%= f.text_area :w_remarks, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
     </div>
@@ -146,25 +154,7 @@
 
    
 
-    <%# 注意書き %>
-    <div class="caution">
-      <p class="sentence">
-        <a href="#">禁止されている出品、</a>
-        <a href="#">行為</a>
-        を必ずご確認ください。
-      </p>
-      <p class="sentence">
-        またブランド品でシリアルナンバー等がある場合はご記載ください。
-        <a href="#">偽ブランドの販売</a>
-        は犯罪であり処罰される可能性があります。
-      </p>
-      <p class="sentence">
-        また、出品をもちまして
-        <a href="#">加盟店規約</a>
-        に同意したことになります。
-      </p>
-    </div>
-    <%# /注意書き %>
+   
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "登録する" ,class:"sell-btn" %>

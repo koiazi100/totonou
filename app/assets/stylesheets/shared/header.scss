@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-contents {
+  
+  width: 100vw;
+}
+
+/* 画面上部の帯部分 */
+.title-contents {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+ 
+.service-title {
+  font-size: 8vh;
+}
+
+.service-explain {
+  font-size: 2.5vh;
+  line-height: 40px;
+}
+
+.store-btn {
+  display: flex;
+  margin-top: 24px;
+}
+
+.apple-btn {
+  margin-right: 1vw;
+  height: 9vh;
+}
+
+.google-btn {
+  height: 9vh;
+}
+
+/* //画面上部の帯部分 */
+.top-page-header {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-image: image-url('sauna-header.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-color: lightgray;
+  background-blend-mode: color-burn;
+}
+
+.search-bar-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sauna-icon {
+  width: 10vw;
+  margin-right: 10vw;
+  margin-left: 10vw;
+}
+
+.search-form {
+  width: 50vw;
+  height: 5vh;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.search-form>.input-box {
+  width: 100%;
+  height: 5vh;
+  padding-left: 10px;
+}
+
+.search-button {
+  width: 5vh;
+  border: 0;
+  cursor: pointer;
+  background-color: #193278;
+  padding: 8px;
+}
+
+.search-icon {
+  width: 100%;
+}
+
+
+.lists-left {
+  display: flex;
+  min-width: 200px;
+
+}
+
+.post {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+}
+
+.post:hover {
+  opacity: 0.7;
+  color: #193278;
+  }
+
+.brand-list {
+  text-decoration: none;
+  color: #333333;
+}
+
+.lists-right {
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+}
+
+
+.user-nickname {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+}
+
+.user-nickname:hover {
+  opacity: 0.7;
+  color: #193278;
+  }
+
+
+.nav {
+  font-size: 18px;
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1vh 0;
+}
+
+.logout {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  margin-right: 3vw;
+}
+
+.logout:hover {
+  opacity: 0.7;
+  color: #193278;
+  }
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+}
+
+.login:hover {
+  opacity: 0.7;
+  color: #193278;
+  }
+
+.sign-up {
+  text-decoration: none;
+  color: #333333;
+  line-height: 32px;
+  margin-right: 3vw;
+  font-weight: bold;
+}
+
+.sign-up:hover {
+  opacity: 0.7;
+  color: #193278;
+  }

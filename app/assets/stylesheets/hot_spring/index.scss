@@ -6,67 +6,6 @@ a {
   background: #f8f8f8;
 }
 
-/* 画面上部の帯部分 */
-.title-contents {
-  width: 100vw;
-  background-image: image-url('sauna-header.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 5vh 15vw;
-  color: #fff;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
-}
-
-.title-contents.slidein.is-animated {
-  animation: slideIn 1s cubic-bezier(0.25, 1, 0.5, 1) 1 forwards;
-}
- 
-@keyframes slideIn {
-  0% {
-    transform: translateX(180px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-  }
-  40%,100% {
-    opacity: 1;
-  }
-} 
-
-.service-title {
-  font-size: 8vh;
-}
-
-.service-explain {
-  font-size: 2.5vh;
-  line-height: 40px;
-}
-
-.store-btn {
-  display: flex;
-  margin-top: 24px;
-}
-
-.apple-btn {
-  margin-right: 1vw;
-  height: 9vh;
-}
-
-.google-btn {
-  height: 9vh;
-}
-
-/* //画面上部の帯部分 */
-
-
-
-
 
 /* 施設一覧 */
 
@@ -94,21 +33,24 @@ a {
 
 .item-lists {
   width: 100vw;
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
   justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 26px;
 }
 
 .item-lists>.list {
   width: 37vh;
   padding: 1vw;
   background-color: #FFF;
+  margin: 0 auto;
 }
 
 .item-price {
   font-size: 1.5vh;
   display: flex;
-  text-decoration: none;
+  justify-content: space-between;
 }
 
 .man-sauna {
@@ -155,11 +97,6 @@ a {
   font-size: 2.5vh;
 }
 
-.item-price {
-  font-size: 1.5vh;
-  display: flex;
-  justify-content: space-between;
-}
 
 
 .star-btn {
@@ -198,11 +135,11 @@ a {
 
 .comment-lists {
   width: 100vw;
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
-  justify-content: center;
-}
 
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
 .comment-lists>.list {
   width: 37vh;
   padding: 1vw;
@@ -244,5 +181,6 @@ a {
 .heart-count {
   font-size: 2vh;
 }
+
 
 /* //コメント一覧 */

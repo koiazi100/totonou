@@ -1,25 +1,6 @@
 <%= render "shared/header" %>
 <div class='main'>
 
-  <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
-  <div class='title-contents'>
-    <h2 class='service-title'>
-      TOTONOU
-    </h2>
-    <p class='service-explain'>
-      全国のサウナの情報を共有できる
-    </p>
-    <p class='service-explain'>
-      サウナ好きのためのサイトです
-    </p>
-    <div class='store-btn'>
-      <%= link_to image_tag("app-store.svg", class:"apple-btn"), "#" %>
-      <%= link_to image_tag("google-play.png", class:"google-btn"), "#" %>
-    </div>
-  </div>
-  <%# /画面上部の「人生を変えるフリマアプリ」帯部分  %>
-  
-
   <%# 施設一覧 %>
   <div class='item-contents'>
     <h2 class='title'>温泉施設一覧</h2>
@@ -41,25 +22,24 @@
             <%= hot_spring.name %>
           </h3>
           <div class='item-price'>
-             <div class='man-sauna'>
-                <p class='man-title'>男湯</p>
-                <p class='sauna-room'>サウナ室</p>
-                <span><%= hot_spring.man_sauna.hot_temperture %>度</span>
-                <p class='water-room'>水風呂</p>
-                <%= hot_spring.man_sauna.cold_temperture %>度</span>
-              </div>
-              <div class='woman-sauna'>
-                <p class='woman-title'>女湯</p>
-                <p class='sauna-room'>サウナ室</p>
-                <span><%= hot_spring.woman_sauna.w_hot_temperture %>度</span>
-                <p class='water-room'>水風呂</p>
-                <span><%= hot_spring.woman_sauna.w_cold_temperture %>度</span>
-              </div>
-              <div class='heart-btn' id="hot_spring_<%= hot_spring.id %>">
-                
-                  <%= render 'likes/like',hot_spring: hot_spring %>
-                
-              </div>
+            <table class='man-sauna'>
+                <tr><th class='man-title'>男湯</th></tr>
+               <tr> <td class='sauna-room'>サウナ室</td>
+                <td><%= hot_spring.man_sauna.hot_temperture %>度</td></tr>
+                <tr><td class='water-room'>水風呂</td>
+                <td><%= hot_spring.man_sauna.cold_temperture %>度</td></tr>
+            </table>
+              
+            <table class='woman-sauna'>
+                <tr><th class='woman-title'>女湯</th></tr>
+               <tr> <td class='sauna-room'>サウナ室</td>
+                <td><%= hot_spring.woman_sauna.w_hot_temperture %>度</td></tr>
+                <tr><td class='water-room'>水風呂</td>
+                <td><%= hot_spring.woman_sauna.w_cold_temperture %>度</td></tr>
+            </table>
+            <div class='heart-btn' id="hot_spring_<%= hot_spring.id %>">
+                <%= render 'likes/like',hot_spring: hot_spring %>    
+            </div>
           </div>
         </div>
         <% end %>
