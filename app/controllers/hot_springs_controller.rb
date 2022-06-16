@@ -29,12 +29,13 @@ class HotSpringsController < ApplicationController
 
   def edit
     hot_spring_attributes = @hot_spring.attributes
-    
     @sauna = Sauna.new(hot_spring_attributes)
   end
 
   def update
+
     @sauna = Sauna.new(sauna_params)
+    @sauna.image ||= @hot_spring.image.blob if @hot_spring.image.present?
     if @sauna.valid? 
        @sauna.update(sauna_params, @hot_spring)
        redirect_to root_path
