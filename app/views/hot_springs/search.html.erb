@@ -1,0 +1,64 @@
+<%= render "shared/header" %>
+
+  <div class='item-contents'>
+    <h2 class='title'>検索結果</h2>
+      <%if @results.present?%>
+
+       <div class='sauna-lists'>
+
+          <% @results.each do |hot_spring|%>
+            <li class='sauna-list'>
+               <%= link_to hot_spring_path(hot_spring.id) do %>
+
+                  <div class='item-img-content'>
+                     <% if hot_spring.image.present?%>
+                        <%= image_tag hot_spring.image, class: "item-img" %>
+                      <% else %>
+                         <%= image_tag "sample.png", class: "item-img" %>
+                      <% end %>
+                  </div>
+
+              <div class='item-info'>
+
+                <h3 class='item-name'>
+                  <%= hot_spring.name %>
+                </h3>
+
+                <div class='item-price'>
+
+                  <table class='man-sauna'>
+                    <tr><th class='man-title'>男湯</th></tr>
+                    <tr> <td class='sauna-room'>サウナ室</td>
+                    <td><%= hot_spring.man_sauna.hot_temperture %>度</td></tr>
+                    <tr><td class='water-room'>水風呂</td>
+                    <td><%= hot_spring.man_sauna.cold_temperture %>度</td></tr>
+                  </table>
+              
+                  <table class='woman-sauna'>
+                    <tr><th class='woman-title'>女湯</th></tr>
+                    <tr> <td class='sauna-room'>サウナ室</td>
+                    <td><%= hot_spring.woman_sauna.w_hot_temperture %>度</td></tr>
+                    <tr><td class='water-room'>水風呂</td>
+                    <td><%= hot_spring.woman_sauna.w_cold_temperture %>度</td></tr>
+                  </table>
+
+                  <div class='heart-btn' id="hot_spring_<%= hot_spring.id %>">
+                    <%= render 'likes/like',hot_spring: hot_spring %>    
+                  </div>
+
+                </div>
+
+              </div>
+                <% end %>
+            </li>
+         <%end %>
+
+        
+       </div>
+
+       <% else %>
+        <h3>該当なし</h3>
+       <% end %>
+  </div>
+
+<%= render "shared/footer" %>

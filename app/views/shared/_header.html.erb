@@ -3,12 +3,16 @@
 <div class='top-contents'>
   <div class='search-bar-contents'>
     <%= link_to image_tag("sauna-logo.png", class:"sauna-icon"), "/" %>
-    <form class="search-form" action="#">
-      <input class='input-box' placeholder='キーワードから探す'>
-      <button class="search-button">
-        <%= image_tag "search.png", class:"search-icon" %>
-      </button>
-    </form>
+
+        <%= search_form_for @q, url: search_hot_springs_path, class: "search-form" do |f| %>
+          <%= f.search_field :name_or_city_or_block_or_building_cont , placeholder: "キーワードから探す", class: "input-box"%>
+          <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name,include_blank: '都道府県から探す' ,class:"prefecture-box" %>
+
+         <div class="search-button">
+           <%= image_submit_tag("search.png", class: 'search-icon') %>
+         </div>
+        <% end %>
+   
   </div>
   <div class='nav'>
     <ul class='lists-right'>
