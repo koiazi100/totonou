@@ -1,6 +1,7 @@
 class HotSpringsController < ApplicationController
-  before_action :move_to_sign_up, only: [:create, :edit, :update]
+  before_action :move_to_sign_up, only: [:create, :edit,:search]
   before_action :set_hot_spring, only: [:show, :edit, :update, :destroy]
+  before_action :set_q, only: [:index, :show, :search,:edit, :new]
   def index
     @hot_springs = HotSpring.all
     @saunas = Sauna.new
@@ -43,6 +44,12 @@ class HotSpringsController < ApplicationController
       render :edit
     end
   end
+
+  def search
+    @results = @q.result
+  end
+
+  
   private
 
   def sauna_params
@@ -57,4 +64,8 @@ class HotSpringsController < ApplicationController
     redirect_to new_user_session_path unless user_signed_in?
   end
 
+
+  def set_q
+    @q = HotSpring.ransack(params[:q])
+  end
 end

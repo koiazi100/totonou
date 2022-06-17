@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'hot_springs#index'
   resources :hot_springs do
     resources :comments,only: [:index, :new, :create] 
+    collection do
+      get 'search'
+    end
   end
    resources :users, only: [:show]
 

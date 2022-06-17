@@ -51,7 +51,7 @@
         <div class="form-text">
           都道府県
           <span class="indispensable">必須</span>
-          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+          <%= f.collection_select(:prefecture_id, Prefecture.all, :id,:name,{prompt: '---'}, {class:"select-box", id:"item-category"}) %>
         </div>
       </div>
 

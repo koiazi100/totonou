@@ -117,11 +117,13 @@ GEM
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.0)
     minitest (5.15.0)
     msgpack (1.5.2)
     mysql2 (0.5.4)
     nio4r (2.5.8)
-    nokogiri (1.13.6-x86_64-darwin)
+    nokogiri (1.13.6)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pry (0.14.1)
@@ -165,6 +167,10 @@ GEM
       thor (>= 0.20.3, < 2.0)
     rainbow (3.1.1)
     rake (13.0.6)
+    ransack (3.0.1)
+      activerecord (>= 6.0.4)
+      activesupport (>= 6.0.4)
+      i18n
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -258,6 +264,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 6.0.0)
+  ransack
   react_on_rails (~> 12.4)
   sass-rails (~> 5)
   selenium-webdriver
