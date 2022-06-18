@@ -1,6 +1,6 @@
 class HotSpringsController < ApplicationController
   before_action :move_to_sign_up, only: [:create, :edit,:search]
-  before_action :set_hot_spring, only: [:show, :edit, :update, :destroy]
+  before_action :set_hot_spring, only: [:show, :edit, :update]
   before_action :set_q, only: [:index, :show, :search,:edit, :new]
   def index
     @hot_springs = HotSpring.all

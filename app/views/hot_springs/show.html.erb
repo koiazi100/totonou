@@ -26,6 +26,10 @@
           <th class="detail-item">住所</th>
           <td class="detail-value">〒<%= @hot_spring.postcode%> <%= @hot_spring.prefecture.name %><%= @hot_spring.city%><%= @hot_spring.block%><%= @hot_spring.building%></td>
         </tr>
+        <tr>
+          <th class="detail-item">ホームページ</th>
+          <td class="detail-value"><%= @hot_spring.homepage %></td>
+        </tr>
     </tbody>
     </table>
     <table class="detail-table">

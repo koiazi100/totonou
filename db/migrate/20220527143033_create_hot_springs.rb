@@ -8,7 +8,7 @@ class CreateHotSprings < ActiveRecord::Migration[6.0]
       t.string :block, null: false
       t.string :building
       t.text :homepage, optional: true
-      t.references :user, null: false, foreign_key: true
+      t.references :user, null: false
       t.timestamps
     end
   end

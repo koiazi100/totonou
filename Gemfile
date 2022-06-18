@@ -61,3 +61,4 @@ gem 'image_processing', '~> 1.2'
 gem "react_on_rails", "~> 12.4"
 gem 'jquery-rails'
 gem 'ransack'
+gem 'rails-i18n'

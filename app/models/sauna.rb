@@ -5,13 +5,13 @@ class Sauna
 
   with_options presence: true do
     validates :name
-    validates :prefecture_id, numericality: { other_than: 1, message: "を選択してください" }
-    validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :postcode
     validates :city
     validates :block 
   end
 
-
+  validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "ハイフン（-）を入れてください"}, allow_blank: true
+  validates :prefecture_id, numericality: { other_than: 1, message: "を選択してください" } 
  
 
     validates :hot_temperture, numericality: {only_integer: true} , allow_blank: true

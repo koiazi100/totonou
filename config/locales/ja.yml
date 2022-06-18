@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        sex_id: 性別
+        text: テキスト
+        image: 画像
+  activemodel:
+    attributes:
+      sauna:
+        name: 施設名
+        prefecture_id: 都道府県
+        postcode: 郵便番号
+        city: 市町村
+        block: 番地

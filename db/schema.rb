@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(version: 2022_06_10_045025) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "hot_springs"
   add_foreign_key "comments", "users"
-  add_foreign_key "hot_springs", "users"
   add_foreign_key "man_saunas", "hot_springs"
   add_foreign_key "woman_saunas", "hot_springs"
 end

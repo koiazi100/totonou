@@ -1,0 +1,62 @@
+<%= render "shared/header" %>
+<div class="items-sell-contents">
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">プロフィール情報を入力</h2>
+    <%= form_with model:@user,url: user_path(@user.id), method: :patch,local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+    
+    <%# プロフィール画像 %>
+    <div class="img-upload">
+      
+      <div class="weight-bold-text">
+        プロフィール画像
+        <span class="indispensable">任意</span>
+      </div>
+
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+
+    </div>
+    <%# /プロフィール画像 %>
+  
+    <%# プロフィール詳細 %>
+    <div class="items-detail">
+      <div class="form">
+        <div class='form-text-wrap'>
+           <label class="form-text">ニックネーム</label>
+           <span class="indispensable">必須</span>
+        </div>
+         <%= f.text_field :nickname ,class:"items-text", id:"item-name", placeholder:"ニックネーム", maxlength:"40" %>
+      </div>
+     
+      <div class="form">
+        <div class='form-text-wrap'>
+          <label class="form-text">プロフィール</label>
+          <span class="form-any">任意</span>
+        </div>
+        <%= f.text_field :profile, class:"items-text", id:"profile", placeholder:"プロフィール"%>
+      </div>
+
+       <div class="form">
+        <div class="form-text">
+          <label class="form-text">性別</label>
+          <span class="indispensable">必須</span>
+          <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        </div>
+      </div>
+        <div class="sell-btn-contents">
+          <%= f.submit "変更する" ,class:"sell-btn" %>
+          <%=link_to 'もどる', "#", class:"back-btn" %>
+        </div>
+    </div>
+    <%# /プロフィール詳細 %>
+  <% end %>
+
+</div>
+
+<%= render "shared/footer" %>

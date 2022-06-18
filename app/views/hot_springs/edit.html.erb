@@ -3,7 +3,7 @@ app/assets/stylesheets/items/new.css %>
 <%= render "shared/second-header"%>
 <div class="items-sell-contents">
   <div class="items-sell-main">
-    <h2 class="items-sell-title">商品の情報を入力</h2>
+    <h2 class="items-sell-title">施設の情報を入力</h2>
     <%= form_with model:@sauna,url: hot_spring_path(@hot_spring.id), method: :patch,local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
@@ -31,7 +31,7 @@ app/assets/stylesheets/items/new.css %>
         施設名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :name ,class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_field :name ,class:"items-text", id:"item-name", placeholder:"施設名（必須 40文字まで)", maxlength:"40" %>
   
 
     <%# 施設の詳細 %>
@@ -51,7 +51,7 @@ app/assets/stylesheets/items/new.css %>
         <div class="form-text">
           都道府県
           <span class="indispensable">必須</span>
-          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name,  { include_blank: "---" }, {class:"select-box", id:"item-category"}) %>
         </div>
       </div>
 
@@ -161,7 +161,7 @@ app/assets/stylesheets/items/new.css %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "変更する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', "#", class:"back-btn" %>
+      <%=link_to 'もどる', hot_spring_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>

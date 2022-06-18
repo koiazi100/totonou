@@ -16,6 +16,6 @@ class LikesController < ApplicationController
   def hot_spring_params
     @hot_spring = HotSpring.find(params[:id])
   end
-
- 
+  
+  
 end

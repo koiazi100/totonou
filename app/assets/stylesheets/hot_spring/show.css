@@ -52,14 +52,15 @@
 
 .item-red-btn {
   text-align: center;
-  background-color: #ea352d;
   font-size: 24px;
   font-weight: bold;
   color: #FFF;
   margin: 20px 0px;
   padding: 2vh 10vw;
   cursor: pointer;
-  
+  background-color: #193278;
+  border: 1px solid #193278;
+  border-radius: 10px;
 }
 
 .item-red-btn:hover {
