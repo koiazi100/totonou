@@ -124,7 +124,7 @@ a {
   flex-direction: column;
   align-items: center;
   padding: 10vh 0;
-  
+  justify-content: center;
 }
 
 .comment-contents>.title {
@@ -134,7 +134,7 @@ a {
 }
 
 .comment-lists {
-  width: 100vw;
+  
   display: grid;
   flex-wrap: wrap;
 
