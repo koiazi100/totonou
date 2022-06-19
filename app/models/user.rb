@@ -5,7 +5,7 @@ class User < ApplicationRecord
  has_one_attached :image, dependent: :destroy
  has_many :comments, dependent: :destroy
  has_many :likes
- has_many :hot_spring
+ has_many :hot_springs
 with_options presence: true do
   validates :nickname
   validates :sex_id
