@@ -1,7 +1,15 @@
 <%= render "shared/header" %>
 
 <div class='main'>
-
+  <div class='column'>
+    <h1 class="column-title">
+      ととのう とは？
+    </h1>
+    <p class='column-text'>
+      医学的には血中に興奮状態の時に出るアドレナリンが残っているのに、自律神経はリラックス状態の副交感神経優位になっている状態
+      <br>感覚が研ぎ澄まされ、頭の雑念が消え去り、多幸感に満ちている状態のことをいいます！
+    </p>
+  </div>
   <%# 施設一覧 %>
   <div class='item-contents'>
     <h2 class='title'>温泉施設一覧</h2>
@@ -10,7 +18,7 @@
     <% if @hot_springs.present? %>
       <% @hot_springs.each do |hot_spring|%>
       <li class='list'>
-        <%= link_to hot_spring_path(hot_spring.id) do %>
+        <%= link_to hot_spring_path(hot_spring.id) ,class:'none-list' do %>
         <div class='item-img-content'>
           <% if hot_spring.image.present?%>
             <%= image_tag hot_spring.image, class: "item-img" %>
@@ -79,10 +87,10 @@
           <li class='list'>
             <div class='comment-info'>
               <h3 class='comment-name'>
-                <%= link_to comment.user.nickname, user_path(comment.user.id) %>
+                <%= link_to comment.user.nickname, user_path(comment.user.id) , class:'none-list' %>
               </h3>
               <div class='hot_spring-name'>
-                <%= link_to comment.hot_spring.name, hot_spring_path(comment.hot_spring.id) %>
+                <%= link_to comment.hot_spring.name, hot_spring_path(comment.hot_spring.id),class:'none-list' %>
               </div>
               <div class='comment-content'>
                 <%= comment.content%>
