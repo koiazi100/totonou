@@ -35,8 +35,8 @@
           </h2>
           <div class="user__card">
             <% @comments.each do |comment| %>
-                <li class="comments_list">
-                  <%= link_to comment.hot_spring.name ,hot_spring_path(comment.hot_spring.id),class: :hot_spring_name %><br>
+                <li class="comments-list">
+                  <%= link_to comment.hot_spring.name ,hot_spring_path(comment.hot_spring.id) %><br>
                   <span class="comment"><%= comment.content %></span>
                 </li>
             <% end %>

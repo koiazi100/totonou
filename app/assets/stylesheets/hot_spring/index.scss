@@ -2,6 +2,29 @@ a {
   text-decoration: none;
 }
 
+.none-list {
+  text-decoration: none;
+  list-style:none
+}
+
+.column {
+  background-color: #FFF;
+  height: 10vh;
+  cursor: pointer;
+  text-align: center;
+  
+}
+
+.column-title {
+  margin-bottom: 0;
+}
+
+.column-text {
+  display: none;
+  margin-bottom: 0;
+  
+}
+
 .main {
   background: #f8f8f8;
 }
