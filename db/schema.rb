@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_10_045025) do
+ActiveRecord::Schema.define(version: 2022_06_28_085021) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2022_06_10_045025) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["hot_spring_id"], name: "index_comments_on_hot_spring_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "comments_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "comment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_comments_likes_on_comment_id"
+    t.index ["user_id"], name: "index_comments_likes_on_user_id"
   end
 
   create_table "hot_springs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
