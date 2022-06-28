@@ -42,15 +42,10 @@ class Sauna
       
   
       #もしタグの情報がすでに保存されていればインスタンスを取得、無ければインスタンスを新規作成
-      man_sauna = ManSauna.where(hot_temperture: hot_temperture).first_or_initialize if hot_temperture.present?
-      man_sauna = ManSauna.where(cold_temperture: cold_temperture).first_or_initialize if cold_temperture.present?
-      man_sauna = ManSauna.where(people_count: people_count).first_or_initialize if people_count.present?
-      man_sauna = ManSauna.where(remarks: remarks).first_or_initialize if remarks.present?
-      woman_sauna = WomanSauna.where(w_hot_temperture: w_hot_temperture).first_or_initialize if w_hot_temperture.present?
-      woman_sauna = WomanSauna.where(w_cold_temperture: w_cold_temperture).first_or_initialize if w_cold_temperture.present?
-      woman_sauna = WomanSauna.where(w_people_count: w_people_count).first_or_initialize if w_people_count.present?
-      woman_sauna = WomanSauna.where(w_remarks: w_remarks).first_or_initialize if w_remarks.present?
-  
+      man_sauna = ManSauna.where(hot_temperture: hot_temperture,cold_temperture: cold_temperture,people_count: people_count,remarks: remarks).first_or_initialize if hot_temperture.present?
+     
+      woman_sauna = WomanSauna.where(w_hot_temperture: w_hot_temperture,w_cold_temperture: w_cold_temperture,w_people_count: w_people_count,w_remarks: w_remarks).first_or_initialize if w_hot_temperture.present?
+     
       #タグを保存
       ManSauna.update(hot_temperture: hot_temperture,cold_temperture: cold_temperture, people_count: people_count, remarks: remarks)
       WomanSauna.update(w_hot_temperture: w_hot_temperture,w_cold_temperture: w_cold_temperture, w_people_count: w_people_count, w_remarks: w_remarks)
