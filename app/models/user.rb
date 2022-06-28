@@ -5,6 +5,7 @@ class User < ApplicationRecord
  has_one_attached :image, dependent: :destroy
  has_many :comments, dependent: :destroy
  has_many :likes
+ has_many :comments_likes
  has_many :hot_springs
 with_options presence: true do
   validates :nickname
@@ -17,5 +18,9 @@ end
 
   def liked_by?(hot_spring_id)
     likes.where(hot_spring_id: hot_spring_id).exists?
+  end
+
+  def comments_liked_by?(comment_id)
+    comments_likes.where(comment_id: comment_id).exists?
   end
 end

@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
   <% if current_user.liked_by?(hot_spring.id) %>
     <td>
-      <%= link_to destroy_like_path(hot_spring), method: :DELETE, remote: true do %>
+      <%= link_to destroy_like_path(hot_spring), method: :DELETE, remote: true ,class: 'like-btn' do %>
            <i class="fa fa-heart unlike-btn"></i>
       <% end %>
       <%= hot_spring.likes.count %></td>
   <% else %>
     <td>
-      <%= link_to create_like_path(hot_spring), method: :POST, remote: true do %>
+      <%= link_to create_like_path(hot_spring), method: :POST, remote: true,class: 'like-btn' do %>
           <i class="fa fa-heart like-btn"></i>
       <% end %>
       <%= hot_spring.likes.count %></td>

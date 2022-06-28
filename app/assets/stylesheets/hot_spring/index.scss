@@ -1,5 +1,6 @@
 a {
   text-decoration: none;
+  list-style: none;
 }
 
 .none-list {
@@ -190,19 +191,8 @@ a {
 }
 
 
-.heart-btn {
-  display: flex;
-  align-items: center;
-}
-
-.heart-icon {
-  height: 2vh;
-  width: 2vh;
-  margin-right: 0.5vw;
-}
-
-.heart-count {
-  font-size: 2vh;
+.like-btn {
+  text-decoration: none;
 }
 
 
