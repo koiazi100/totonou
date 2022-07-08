@@ -102,18 +102,20 @@
           </li>
         <% end %>
       <% else%>
+          
         <li class='list'>
-          <%= image_tag 'sample.png', class: "comment-img" %>
+          <%= image_tag 'sample.jpeg', class: "comment-img" %>
           <div class='comment-info'>
             <h3 class='comment-name'>
               コメントを投稿してね
             </h3>
-            <div class='heart-btn' id="comment_<%= @comments.id %>">
-                <%= render 'comments_likes/comments_like',comment: comment %>    
+            <div class='heart-btn' >
+             
             </div>
           </div>
         
         </li>
+        
       <% end %>
     </ul>
   </div>
